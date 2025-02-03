@@ -9,8 +9,8 @@ const Navbar = () => {
     <nav className='bg-black text-white flex items-center px-8  md:16 lg:24'>
         <div className='container py-2 flex justify- md:justify-between
         items-center'>
-        <div className='text-2xl  font-bold '>
-            Divine
+        <div className='text-3xl   font-bold '>
+          <span className='text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-blue-600 '>Div</span><span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-700'>ine</span>
         </div>
         <div className='hidden md:block space-x-4 md:space-x-6  '> 
             <a activeClass='active'  href="#" className='hover:text-gray-400'>Home</a>
