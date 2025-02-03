@@ -12,8 +12,8 @@ const Hero = () => {
           alt=""
           className='mx-auto mb-8 w-40 h-48 rounded-full object-cover transform transition-transform duration-300 hover:scale-105'
         />
-        <h1 className='text-4xl font-bold min-h-[3rem]'>
-          <span className='text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500'>
+        <h1 className='text-3xl md:text-4xl  font-bold min-h-[3rem]'>
+          <span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-700'>
             {displayText}
           </span>
         </h1>
@@ -21,10 +21,10 @@ const Hero = () => {
           I specialise in responsive web applications
         </p>
         <div className='mt-8 space-x-4'>
-          <button className='bg-gradient-to-r from-green-400 to-blue-500 text-white hidden md:inline transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full'>
+          <button className='bg-gradient-to-r from-purple-500 to-blue-600 text-white hidden md:inline transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full  hover:border-blue-400 hover:shadow-[0_0_20px_blue]'>
             Contact Me
           </button>
-          <button className='bg-gradient-to-r from-purple-500 to-red-400 text-white hidden md:inline transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full'>
+          <button className='bg-gradient-to-r from-purple-500 to-red-400 text-white hidden md:inline transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full  hover:border-red-400 hover:shadow-[0_0_20px_red]'>
             Resume
           </button>
         </div>

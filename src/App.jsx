@@ -22,7 +22,7 @@ function App() {
     AOS.refresh();
 },[]);
   return (
-    <div className='overflow-hidden'>
+    <div className='overflow-hidden select-none'>
      <Navbar/>
      <Hero/>
      <About/>

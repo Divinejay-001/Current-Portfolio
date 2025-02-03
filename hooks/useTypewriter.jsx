@@ -21,8 +21,8 @@ export function useTypewriter(text, speed = 100) {
         }
       } else {
         // Deleting
-        if (i > 0) {
-          setDisplayText(prev => text.substring(0, i - 1));
+        if (i > 3) {
+          setDisplayText(prev => text.substring(0, i - 0));
           i--;
         } else {
           // Reset to start typing again

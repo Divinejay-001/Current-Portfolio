@@ -77,9 +77,9 @@ const Project = () => {
         <p className='text-gray-400 mb-4'>{project.technologies}</p>
         <div className='flex items-center justify-between'>
             <a href={project.github} target="_blank" rel='noopener noreferrer'
-                  className=' inline-block bg-gradient-to-r from-green-400
-                  to-blue-500 text-white px-4 py-2 rounded-full'>GitHub Repo</a>
-                  <a href={project.link} className='p-2 rounded-full cursor-pointer bg-green-400'>
+                  className=' inline-block bg-gradient-to-r from-purple-500
+                  to-blue-500 text-white px-4 py-2 rounded-full  hover:border-blue-400 hover:shadow-[0_0_20px_blue]'>GitHub Repo</a>
+                  <a href={project.link} className='p-2 rounded-full cursor-pointer bg-green-400  hover:border-green-700 hover:shadow-[0_0_30px_green]'>
                       <FaLink/>
                   </a>
         </div>

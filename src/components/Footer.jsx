@@ -1,16 +1,18 @@
 import React from 'react'
-import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
 
 const Footer = () => {
   return (
     <footer className='bg-black text-white py-8'>
-       <div className='container mx-auto px-8 
+       <div data-aos='zoom-in' className='container mx-auto px-8 
         md:px-16 lg:px-24'>
         <div className='flex flex-col md:flex-row md:space-x-12
         items-center mb-4'>
         <div className='flex-1 mb-4 md:mb-0'>
             <h3 className='text-2xl text-blue-500  font-bold mb-2'>Divine</h3>
-            <p className='text-gray-400'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sed excepturi doloribus aliquam deleniti quisquam?</p>
+            <p className='text-gray-400'>      Let's build something amazing together. Stay updated on my latest projects, web development insights, and creative work by subscribing to my newsletter!
+            </p>
         </div>
         <div className='flex-1 w-full'>
            <form className='flex items-center justify-center'>
@@ -32,24 +34,24 @@ const Footer = () => {
             </p>
             <div className='flex space-x-4 my-4 
             md:my-0'>
-               <a className="p-2 border rounded-md hover:bg-gradient-to-r hover:from-purple-500 hoverto-blue-600 
+               <a className="p-2 border rounded-md hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-600  hover:border-blue-400 hover:shadow-[0_0_20px_blue]
               bg-[length:200%_200%] bg-left  
               transition-all duration-[1500ms] ease-in-out transform" 
-   href="">
-    <FaFacebook  className='text-2xl'/>
+   href="https://instagram.com/divinegiftchidalu">
+    <FaInstagram className='text-2xl'/>
 </a>
 
-                <a href="" className="p-2 border rounded-md hover:bg-gradient-to-r hover:from-purple-500 hoverto-blue-600 
+                <a href="https://www.linkedin.com/in/divinegift-johnson-739977324/" className="p-2 border rounded-md hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-600  hover:border-blue-400 hover:shadow-[0_0_20px_blue]
               bg-[length:200%_200%] bg-left  
               transition-all duration-[1500ms] ease-in-out transform">
                     <FaLinkedin className='text-2xl '/>
                 </a>
-                <a href="" className="p-2 border rounded-md hover:bg-gradient-to-r hover:from-purple-500 hoverto-blue-600 
+                <a href="https://twitter.com/Divinegift9503" className="p-2 border rounded-md hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-600  hover:border-blue-400 hover:shadow-[0_0_20px_blue]
               bg-[length:200%_200%] bg-left  
               transition-all duration-[1500ms] ease-in-out transform">
-                    <FaTwitter className='text-2xl'/>
+                    <FaXTwitter className='text-2xl'/>
                 </a>
-                <a href="" className="p-2 border rounded-md hover:bg-gradient-to-r hover:from-purple-500 hoverto-blue-600 
+                <a href="https://github.com/Divinejay-001" className="p-2 border rounded-md hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-600  hover:border-blue-400 hover:shadow-[0_0_20px_blue]
               bg-[length:200%_200%] bg-left  
               transition-all duration-[1500ms] ease-in-out transform">
                     <FaGithub className='text-2xl'/>

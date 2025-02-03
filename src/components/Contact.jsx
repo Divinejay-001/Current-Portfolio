@@ -43,7 +43,7 @@ const sendEmail = (e) => {
           
             <div data-aos='fade-up' className='flex-1'>
             <h3 className="text-3xl font-bold text-transparent bg-clip-text 
-               bg-gradient-to-r from-green-400 to-blue-500 mb-4 
+             bg-gradient-to-r from-purple-500 to-blue-600 mb-4 
                animate-pulse">
     Let's Talk
 </h3>
@@ -53,18 +53,18 @@ const sendEmail = (e) => {
 
            <div className='mb-4 mt-8'>
             <FaEnvelope className='inline-block 
-            text-green-400 mr-2'/>
+            text-blue-400 mr-2'/>
             <a href='mailto:youremail@example.com' className='
             hover:underline'>your@email.com</a>
            </div>
            <div className='mb-4 '>
             <FaPhone className='inline-block 
-            text-green-400 mr-2'/>
+            text-blue-400 mr-2'/>
             <span>+234-9127064183</span>
            </div>
            <div className='mb-4 mt-8'>
             <FaMap className='inline-block 
-            text-green-400 mr-2'/>
+            text-blue-400 mr-2'/>
            <span>Uyo, Akwa Ibom State Nigeria</span>
            </div>
             </div>
@@ -75,7 +75,7 @@ const sendEmail = (e) => {
               <input type="text" id="name" 
               name="name" required className='w-full p-2
               rounded bg-gray-800 border border-gray-600
-              focus:outline-none focus:border-green-400 '
+              focus:outline-none focus:border-green-400  hover:border-blue-400 hover:shadow-[0_0_20px_blue] '
               placeholder='Enter Your Name'/>
             </div>
             <div>
@@ -83,7 +83,7 @@ const sendEmail = (e) => {
               <input type="text" id="email" 
               name="email" required className='w-full p-2
               rounded bg-gray-800 border border-gray-600
-              focus:outline-none focus:border-green-400 '
+              focus:outline-none focus:border-green-400  hover:border-blue-400 hover:shadow-[0_0_20px_blue]'
               placeholder='Enter Your Email'/>
             </div>
             <div>
@@ -91,7 +91,7 @@ const sendEmail = (e) => {
               <textarea type="text" id="email" 
               name="msg" required className='w-full p-2
               rounded bg-gray-800 border border-gray-600
-              focus:outline-none focus:border-green-400 '
+              focus:outline-none focus:border-green-400  hover:border-blue-400 hover:shadow-[0_0_20px_blue]'
              rows="5"
              placeholder='Enter Your Message'/>
              </div>

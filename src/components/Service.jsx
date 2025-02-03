@@ -50,15 +50,15 @@ const Service = () => {
     bg-gray-800 px-6 pb-6 rounded-lg hover:shadow-lg
     transform transition-transform duration-300 hover:scale-105'>
     <div className='text-right text-2xl font-bold text-transparent bg-clip-text
-            bg-gradient-to-r from-green-600 to-blue-400'>
+            bg-gradient-to-r from-purple-500 to-blue-600'>
 {service.id}
     </div>
     <h3 className='mt-2 text-2xl font-bold text-transparent bg-clip-text
-            bg-gradient-to-r from-green-400 to-blue-500'>
+            bg-gradient-to-bl from-purple-500 to-blue-600'>
 {service.title}
     </h3>
     <p className='mt-2 text-gray-300'>{service.description}</p>
-    <a href="#contact" className='mt-4 inline-block text-green-400 hover:text-blue-500 underline'>Hire Me</a>
+    <a href="#contact" className='mt-4 inline-block text-purple-400 hover:text-blue-500 underline'>Hire Me</a>
     </div>
 ))}
             </div>
