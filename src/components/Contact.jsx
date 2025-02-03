@@ -55,7 +55,7 @@ const sendEmail = (e) => {
             <FaEnvelope className='inline-block 
             text-blue-400 mr-2'/>
             <a href='mailto:youremail@example.com' className='
-            hover:underline'>your@email.com</a>
+            hover:underline'>divinegiftjohnson21@gmail.com</a>
            </div>
            <div className='mb-4 '>
             <FaPhone className='inline-block 
