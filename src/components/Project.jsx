@@ -62,14 +62,14 @@ const Project = () => {
   return (
     <div className='bg-black text-white
     py-10' id='project'>
-        <div data-aos='zoom-in' className='container mx-auto px-8 
+        <div  className='container mx-auto px-8 
         md:px-16 lg:px-24'>
-        <h2  className='text-4xl font-bold
+        <h2 data-aos='zoom-in'  className='text-4xl font-bold
         text-center mb-12'>My Projects</h2>
-        <div className='grid grid-cols-1 md:grid-cols-2
+        <div  className='grid grid-cols-1 md:grid-cols-2
         lg:grid-cols-3 gap-8'>
 {project.map(project =>(
-    <div key={project.id}  className='
+    <div data-aos='fade-up' key={project.id}  className='
     bg-gray-800 p-6 rounded-lg hover:shadow-lg
     transform transition-transform duration-300 hover:scale-105' >
         <img src={project.image} alt="" className='rounded-lg object-cover w-full h-48 mb-4 ' />
@@ -79,9 +79,13 @@ const Project = () => {
             <a href={project.github} target="_blank" rel='noopener noreferrer'
                   className=' inline-block bg-gradient-to-r from-purple-500
                   to-blue-500 text-white px-4 py-2 rounded-full  hover:border-blue-400 hover:shadow-[0_0_20px_blue]'>GitHub Repo</a>
-                  <a href={project.link} className='p-2 rounded-full cursor-pointer bg-green-400  hover:border-green-700 hover:shadow-[0_0_30px_green]'>
-                      <FaLink/>
-                  </a>
+            <div className='flex items-center'>
+                <a href={project.link}  target="_blank" rel='noopener noreferrer'
+                      className=' flex items-center gap-2 bg-gradient-to-r from-purple-500
+                      to-blue-500 text-white px-4 py-2 rounded-full  hover:border-blue-400 hover:shadow-[0_0_20px_blue]'>Website Link   <FaLink/></a>
+                        
+            </div>
+                  
         </div>
     </div>
 ))}

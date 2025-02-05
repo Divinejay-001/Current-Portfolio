@@ -20,13 +20,18 @@ const Hero = () => {
         <p className='mt-4 text-lg text-gray-300'>
           I specialise in responsive web applications
         </p>
-        <div className='mt-8 space-x-4'>
-          <button className='bg-gradient-to-r from-purple-500 to-blue-600 text-white hidden md:inline transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full  hover:border-blue-400 hover:shadow-[0_0_20px_blue]'>
-            Contact Me
-          </button>
-          <button className='bg-gradient-to-r from-purple-500 to-red-400 text-white hidden md:inline transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full  hover:border-red-400 hover:shadow-[0_0_20px_red]'>
-            Resume
-          </button>
+        
+          <div className='mt-8 space-x-4'>
+          <a href="#contact">
+            <button className='bg-gradient-to-r from-purple-500 to-blue-600 text-white hidden md:inline transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full  hover:border-blue-400 hover:shadow-[0_0_20px_blue]'>
+              Contact Me
+            </button>
+        </a>
+          <a href="https://docs.google.com/document/d/1bW3lUtxepDbaS7QIyCXUS8p3NeOogc1KLHshw2tfT6s/edit?usp=sharing">
+            <button className='bg-gradient-to-r from-purple-500 to-red-400 text-white hidden md:inline transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full  hover:border-red-400 hover:shadow-[0_0_20px_red]'>
+              Resume
+            </button>
+          </a>
         </div>
       </div>
     </div>

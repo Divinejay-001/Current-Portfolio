@@ -20,7 +20,7 @@ const About = () => {
 With a focus on clean code, user experience, and scalability, I create modern web solutions that drive results. I’m currently open for hiring and ready to bring your ideas to life.
       </p>
                 <div data-aos='fade-up' className='space-y-4'>
-                <div className='flex items-center'>
+                {/* <div className='flex items-center'>
                     <label htmlFor="htmlandcss" className='w-2/12'>HTML & CSS</label>
                     <div className='grow bg-gray-800 rounded-full h-2.5'>
                     <div className='bg-gradient-to-r from-yellow-400 to-green-500 h-2.5 rounded-full 
@@ -49,11 +49,11 @@ With a focus on clean code, user experience, and scalability, I create modern we
 
                     </div>
                     </div>
-                   </div>
+                   </div> */}
                 </div>
-                <div className='mt-12 flex justify-between
+                <div  data-aos='fade-up' className='mt-12 flex justify-between
                 text-center'>
-              <div data-aos='fade-up'>
+              <div>
                 <h3  className='text-2xl font-bold text-transparent bg-clip-text
             bg-gradient-to-r from-green-400 to-blue-500'>
                     3+
