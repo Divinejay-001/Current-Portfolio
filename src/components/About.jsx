@@ -14,7 +14,7 @@ const About = () => {
             <img data-aos='fade-right' src={AboutImg} alt="" className='
             w-72 h-80 rounded object-cover border-2  mb-6 md:mb-0'/>
             <div className='flex-1'>
-                <p data-aos='fade-up' className='text-lg mb-8'>
+                <p data-aos='fade-up' className='text-lg mb-3'>
                 I’m Divinegift, a skilled Web Developer specializing in HTML, CSS, JavaScript, React.js, and Node.js. I build fully functional, responsive, and high-performance websites tailored to client needs.
 
 With a focus on clean code, user experience, and scalability, I create modern web solutions that drive results. I’m currently open for hiring and ready to bring your ideas to life.
@@ -51,22 +51,22 @@ With a focus on clean code, user experience, and scalability, I create modern we
                     </div>
                    </div> */}
                 </div>
-                <div  data-aos='fade-up' className='mt-12 flex justify-between
+                <div  data-aos='fade-up' className=' flex justify-between
                 text-center'>
-              <div>
+              <div className='flex items-center gap-3'>
                 <h3  className='text-2xl font-bold text-transparent bg-clip-text
             bg-gradient-to-r from-green-400 to-blue-500'>
                     3+
                 </h3>
                 <p>Years of Experience</p>
                 </div>          
-                <div>
+                {/* <div>
                 <h3 className='text-2xl font-bold text-transparent bg-clip-text
             bg-gradient-to-r from-green-400 to-blue-500'>
                 50+
                 </h3>
                 <p>Projects Completed</p>
-                </div>          
+                </div>           */}
                 </div>
             </div>
         </div>
