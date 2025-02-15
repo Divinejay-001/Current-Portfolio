@@ -4,7 +4,7 @@ import employ from '/heroimg.jpg'
 import Eccom from '../assets/Ecommerce picture.webp'
 import Headset from '../assets/headset.webp'
 import Flower from '../assets/flower.webp'
-import { FaLink } from 'react-icons/fa'
+import { FaLink, FaGithub } from 'react-icons/fa'
 const project=[
     {
         id:1,
@@ -75,13 +75,13 @@ const Project = () => {
         <img src={project.image} alt="" className='rounded-lg object-cover w-full h-48 mb-4 ' />
         <h3 className='text-2xl font-bold mb-12'>{project.name}</h3>
         <p className='text-gray-400 mb-4'>{project.technologies}</p>
-        <div className='flex items-center justify-between'>
+        <div className='flex flex-col sm:flex-row gap-3 items-center justify-between'>
             <a href={project.github} target="_blank" rel='noopener noreferrer'
-                  className=' inline-block bg-gradient-to-r from-purple-500
-                  to-blue-500 text-white px-4 py-2 rounded-full  hover:border-blue-400 hover:shadow-[0_0_20px_blue]'>GitHub Repo</a>
+                  className=' flex  items-center gap-2 bg-gradient-to-r from-purple-500
+                  to-blue-500 text-white px-4 py-2 rounded-full  hover:border-blue-400 hover:shadow-[0_0_20px_blue]'>GitHub Repo  <FaGithub className='block lg:hidden'/></a>
             <div className='flex items-center'>
                 <a href={project.link}  target="_blank" rel='noopener noreferrer'
-                      className=' flex items-center gap-2 bg-gradient-to-r from-purple-500
+                      className=' flex  items-center gap-2 bg-gradient-to-r from-purple-500
                       to-blue-500 text-white px-4 py-2 rounded-full  hover:border-blue-400 hover:shadow-[0_0_20px_blue]'>Website Link   <FaLink/></a>
                         
             </div>
