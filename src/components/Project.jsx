@@ -4,6 +4,7 @@ import employ from '/heroimg.jpg'
 import Eccom from '../assets/Ecommerce picture.webp'
 import Headset from '../assets/headset.webp'
 import Flower from '../assets/flower.webp'
+import Travel from '../assets/Travel.webp'
 import { FaLink, FaGithub } from 'react-icons/fa'
 const project=[
     {
@@ -30,6 +31,15 @@ const project=[
         image: Flower,
         github: 'https://github.com/Divinejay-001/Flower-website',
         link:'https://flower-store.onrender.com'
+
+         },
+         {
+             id:4,
+             name: 'VistaXplore',
+             technologies:'FRONTEND',
+        image: Travel,
+        github: 'https://github.com/Divinejay-001/VistaXplore',
+        link:'https://vistaxplore.onrender.com'
 
          },
         //  {
