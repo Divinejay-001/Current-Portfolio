@@ -5,6 +5,7 @@ import Eccom from '../assets/Ecommerce picture.webp'
 import Headset from '../assets/headset.webp'
 import Flower from '../assets/flower.webp'
 import Travel from '../assets/Travel.webp'
+import Cashmind from '../assets/Cashmind.webp'
 import { FaLink, FaGithub } from 'react-icons/fa'
 const project=[
     {
@@ -40,6 +41,15 @@ const project=[
         image: Travel,
         github: 'https://github.com/Divinejay-001/VistaXplore',
         link:'https://vistaxplore.onrender.com'
+
+         },
+         {
+             id:5,
+             name: 'CashMind',
+             technologies:'MERNSTACK',
+        image: Cashmind,
+        github: 'https://github.com/Divinejay-001/MoneyNest',
+        link:'https://moneynest001.netlify.app/'
 
          },
         //  {
