@@ -5,8 +5,8 @@ export default function About() {
   return (
     <section id="about" className="py-20 bg-gray-950 text-gray-300 relative overflow-hidden">
       {/* Floating gradient behind image */}
-      <div className="absolute -top-20 -left-20 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-blob"></div>
-      <div className="absolute -bottom-32 -right-16 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
+      <div className="absolute -top-20 -left-20 w-72 h-72 bg-purple-500/50 rounded-full blur-3xl animate-blob"></div>
+      <div className="absolute -bottom-32 -right-16 w-96 h-96 bg-blue-500/25 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
 
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
         

@@ -22,7 +22,7 @@ const Hero = () => {
         <img
           src="/heroimg.webp"
           alt="Hero Background"
-          className="object-cover w-full h-full"
+          className="object-cover w-full  h-full"
         />
       </video>
 
