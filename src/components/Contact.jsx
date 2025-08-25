@@ -54,7 +54,7 @@ const Contact = () => {
               Have a project in mind? Let’s connect and build something amazing together.
             </p>
 
-            <div className="space-y-4 mt-6">
+            <div className="space-y-4 mt-6 text-sm md:text-lg">
               {[
                 { icon: <FaEnvelope />, text: 'divinegiftjohnson21@gmail.com', link: 'mailto:divinegiftjohnson21@gmail.com' },
                 { icon: <FaPhone />, text: '+234-9127064183' },
@@ -67,7 +67,7 @@ const Contact = () => {
                 >
                   <span className="text-purple-400 w-5 h-5">{item.icon}</span>
                   {item.link ? (
-                    <a href={item.link} className="text-white hover:underline">{item.text}</a>
+                    <a href={item.link} className="text-white -pl-2 hover:underline">{item.text}</a>
                   ) : (
                     <span className="text-white">{item.text}</span>
                   )}
