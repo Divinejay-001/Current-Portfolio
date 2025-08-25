@@ -1,16 +1,16 @@
 import React, { useRef, useState } from 'react';
-import { FaEnvelope, FaMap, FaPhone } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { FaEnvelope, FaPhone, FaMap } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 import Btn from '../Btn';
 
 const Contact = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const form = useRef();
+  const [isLoading, setIsLoading] = useState(false);
 
   const sendEmail = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-
     try {
       const result = await emailjs.sendForm(
         'service_o2mv64m',
@@ -30,97 +30,87 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-black text-white py-20" id="contact">
-      <div className="container mx-auto px-8 md:px-16 lg:px-24">
-        <h2 data-aos="zoom-in" className="text-4xl font-bold text-center mb-12">
-          Contact
-        </h2>
-        <div className="flex flex-col md:flex-row items-center md:gap-12">
-          {/* Contact Details */}
-          <div data-aos="" className="flex-1 lg:pr-14">
-            <h3
-              className="text-3xl font-bold text-transparent bg-clip-text 
-              bg-gradient-to-r from-purple-500 to-blue-600 mb-4 animate-pulse"
-            >
-              Let's Talk
-            </h3>
-            <p className="text-gray-400">
-              Have a project in mind? Let's connect and bring your ideas to life
-              with a high-quality web solution.
+    <section id="contact" className="py-20 bg-gradient-to-b from-gray-900 to-black text-gray-300">
+      <div className="max-w-6xl mx-auto px-6">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500 mb-12"
+        >
+          Contact Me
+        </motion.h2>
+
+        <div className="flex flex-col md:flex-row gap-12">
+          {/* Contact Info Card */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            className="flex-1 bg-gray-800/40 backdrop-blur-md rounded-2xl p-8 shadow-lg space-y-6"
+          >
+            <h3 className="text-3xl font-semibold text-white mb-4">Let's Talk</h3>
+            <p className="text-gray-300">
+              Have a project in mind? Let’s connect and build something amazing together.
             </p>
 
-            <div className="mt-8 mb-4 lg:mb-0">
-              <div className="flex items-center gap-2 mb-4">
-                <FaEnvelope className="text-blue-400" />
-                <a href="mailto:divinegiftjohnson21@gmail.com" className="hover:underline">
-                  divinegiftjohnson21@gmail.com
-                </a>
-              </div>
-
-              <div className="flex items-center gap-2 mb-4">
-                <FaPhone className="text-blue-400" />
-                <span>+234-9127064183</span>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <FaMap className="text-blue-400 " />
-                <span>Uyo, Akwa Ibom State, Nigeria</span>
-              </div>
+            <div className="space-y-4 mt-6">
+              {[
+                { icon: <FaEnvelope />, text: 'divinegiftjohnson21@gmail.com', link: 'mailto:divinegiftjohnson21@gmail.com' },
+                { icon: <FaPhone />, text: '+234-9127064183' },
+                { icon: <FaMap />, text: 'Uyo, Akwa Ibom State, Nigeria' }
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  whileHover={{ x: 5 }}
+                  className="flex items-center gap-4 p-3 rounded-lg hover:bg-purple-500/20 transition cursor-pointer"
+                >
+                  <span className="text-purple-400 w-5 h-5">{item.icon}</span>
+                  {item.link ? (
+                    <a href={item.link} className="text-white hover:underline">{item.text}</a>
+                  ) : (
+                    <span className="text-white">{item.text}</span>
+                  )}
+                </motion.div>
+              ))}
             </div>
-          </div>
+          </motion.div>
 
-          {/* Contact Form */}
-          <div data-aos="fade-left" className="flex-1 w-full">
-            <form className="space-y-4" ref={form} onSubmit={sendEmail}>
-              <div>
-                <label htmlFor="name" className="block mb-2">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  className="w-full p-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:border-green-400 hover:border-blue-400 hover:shadow-[0_0_20px_blue]"
-                  placeholder="Enter Your Name"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block mb-2">
-                  Your Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className="w-full p-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:border-green-400 hover:border-blue-400 hover:shadow-[0_0_20px_blue]"
-                  placeholder="Enter Your Email"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="msg"
-                  required
-                  className="w-full p-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:border-green-400 hover:border-blue-400 hover:shadow-[0_0_20px_blue]"
-                  rows="5"
-                  placeholder="Enter Your Message"
-                />
-              </div>
-
-              {/* Submit Button */}
-              <Btn disabled={isLoading} text={isLoading ? 'Sending...' : 'Send'} />
-            </form>
-          </div>
+          {/* Contact Form Card */}
+          <motion.form
+            ref={form}
+            onSubmit={sendEmail}
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            className="flex-1 bg-gray-800/40 backdrop-blur-md rounded-2xl p-8 shadow-lg flex flex-col gap-4"
+          >
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              required
+              className="w-full px-4 py-3 rounded-lg bg-gray-900/60 border border-purple-500/30 text-white focus:border-purple-400 focus:ring focus:ring-purple-400/20 transition"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+              className="w-full px-4 py-3 rounded-lg bg-gray-900/60 border border-purple-500/30 text-white focus:border-purple-400 focus:ring focus:ring-purple-400/20 transition"
+            />
+            <textarea
+              name="msg"
+              placeholder="Your Message"
+              rows="5"
+              required
+              className="w-full px-4 py-3 rounded-lg bg-gray-900/60 border border-purple-500/30 text-white focus:border-purple-400 focus:ring focus:ring-purple-400/20 transition"
+            ></textarea>
+            <Btn disabled={isLoading} text={isLoading ? 'Sending...' : 'Send Message'} />
+          </motion.form>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

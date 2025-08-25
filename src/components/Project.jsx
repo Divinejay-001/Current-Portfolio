@@ -1,118 +1,119 @@
-import { div } from 'framer-motion/client'
-import React from 'react'
-import employ from '/heroimg.jpg'
-import Eccom from '../assets/Ecommerce picture.webp'
-import Headset from '../assets/headset.webp'
-import Flower from '../assets/flower.webp'
-import Travel from '../assets/Travel.webp'
-import Cashmind from '../assets/Cashmind.webp'
-import { FaLink, FaGithub } from 'react-icons/fa'
-const project=[
-    {
-        id:1,
-        name: 'Shophere Ecommerce',
-        technologies:'MERN STACK',
-        image: Eccom,
-        github: 'https://github.com/Divinejay-001/Shoppy',
-        link:'https://shoppy-cx1x.onrender.com'
-         },
-         {
-             id:2,
-             name: 'Headset Website',
-             technologies:'FRONTEND',
-             image: Headset,
-             github: 'https://github.com/Divinejay-001/Headset-website',
-             link:'https://headset-dcj.onrender.com'
+import { useState } from "react";
+import { motion } from "framer-motion";
+import Flower from "../assets/flower.webp";
+import Headset from "../assets/headset.webp";
+import Eccom from "../assets/Eccom.webp";
+import Travel from "../assets/Travel.webp";
+import Cashmind from "../assets/Cashmind.webp";
 
-         },
-         {
-             id:3,
-             name: 'Flower App',
-             technologies:'FRONTEND',
-        image: Flower,
-        github: 'https://github.com/Divinejay-001/Flower-website',
-        link:'https://flower-store.onrender.com'
+const projects = [
+  {
+    title: "Flower App",
+    img: Flower,
+    tech: ["Frontend", "React", "Tailwind"],
+    link: "https://flower-store.onrender.com",
+    github: "https://github.com/Divinejay-001/Flower-website",
+  },
+  {
+    title: "Headset Website",
+    img: Headset,
+    tech: ["Frontend", "React"],
+    link: "https://headset-dcj.onrender.com",
+    github: "https://github.com/Divinejay-001/Headset-website",
+  },
+  {
+    title: "Shophere Ecommerce",
+    img: Eccom,
+    tech: ["MERN Stack"],
+    link: "https://shoppy-cx1x.onrender.com",
+    github: "https://github.com/Divinejay-001/Shoppy",
+  },
+  {
+    title: "VistaXplore",
+    img: Travel,
+    tech: ["Frontend", "React"],
+    link: "https://vistaxplore.onrender.com",
+    github: "https://github.com/Divinejay-001/VistaXplore",
+  },
+  {
+    title: "CashMind (MoneyNest)",
+    img: Cashmind,
+    tech: ["MERN Stack", "Tailwind"],
+    link: "https://moneynest001.netlify.app/",
+    github: "https://github.com/Divinejay-001/MoneyNest",
+  },
+];
 
-         },
-         {
-             id:4,
-             name: 'VistaXplore',
-             technologies:'FRONTEND',
-        image: Travel,
-        github: 'https://github.com/Divinejay-001/VistaXplore',
-        link:'https://vistaxplore.onrender.com'
+export default function Projects() {
+  const [activeIndex, setActiveIndex] = useState(null);
 
-         },
-         {
-             id:5,
-             name: 'CashMind',
-             technologies:'MERNSTACK',
-        image: Cashmind,
-        github: 'https://github.com/Divinejay-001/MoneyNest',
-        link:'https://moneynest001.netlify.app/'
-
-         },
-        //  {
-        //      id:4,
-        //      name: 'Lorem ,ipsum.',
-        //      technologies:'MERN STACK',
-        //      image: 'employ',
-        //      github: 'http://github.com',
-        //      link:'https://shoppy-cx1x.onrender.com'
-        //  },
-        //  {
-        //      id:5,
-        //      name: 'Lorem ,ipsum.',
-        //      technologies:'MERN STACK',
-        // image: 'employ',
-        // github: 'http://github.com',
-        // link:'https://shoppy-cx1x.onrender.com'
-        //  },
-        //  {
-        //      id:6,
-        //      name: 'Lorem ,ipsum.', 
-        //      technologies:'MERN STACK',
-        // image: 'employ',
-        // github: 'http://github.com',
-        // link:'https://shoppy-cx1x.onrender.com'
-        //  }
-]
-
-const Project = () => {
   return (
-    <div className='bg-black text-white
-    py-10' id='project'>
-        <div  className='container mx-auto px-8 
-        md:px-16 lg:px-24'>
-        <h2 data-aos='zoom-in'  className='text-4xl font-bold
-        text-center mb-12'>My Projects</h2>
-        <div  className='grid grid-cols-1 md:grid-cols-2
-        lg:grid-cols-3 gap-8'>
-{project.map(project =>(
-    <div data-aos='fade-up' key={project.id}  className='
-    bg-gray-800 p-6 rounded-lg hover:shadow-lg
-    transform transition-transform duration-300 hover:scale-105' >
-        <img src={project.image} alt="" className='rounded-lg object-cover w-full h-48 mb-4 ' />
-        <h3 className='text-2xl font-bold mb-12'>{project.name}</h3>
-        <p className='text-gray-400 mb-4'>{project.technologies}</p>
-        <div className='flex flex-col sm:flex-row gap-3 items-center justify-between'>
-            <a href={project.github} target="_blank" rel='noopener noreferrer'
-                  className=' flex  items-center gap-2 bg-gradient-to-r from-purple-500
-                  to-blue-500 text-white px-4 py-2 rounded-full  hover:border-blue-400 hover:shadow-[0_0_20px_blue]'>GitHub Repo  <FaGithub className='block lg:hidden'/></a>
-            <div className='flex items-center'>
-                <a href={project.link}  target="_blank" rel='noopener noreferrer'
-                      className=' flex  items-center gap-2 bg-gradient-to-r from-purple-500
-                      to-blue-500 text-white px-4 py-2 rounded-full  hover:border-blue-400 hover:shadow-[0_0_20px_blue]'>Website Link   <FaLink/></a>
-                        
-            </div>
-                  
-        </div>
-    </div>
-))}
-            </div>
-            </div>
-            </div>
-              )
-}
+    <section id="projects" className="py-20 bg-gray-950 text-gray-300">
+      <div className="max-w-6xl mx-auto px-6 text-center">
+        <h2 className="text-4xl font-bold text-white mb-12">Projects</h2>
+        <div className="grid md:grid-cols-2 gap-10">
+          {projects.map((p, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.2 }}
+              className="relative rounded-xl overflow-hidden border border-purple-500/20 shadow-lg cursor-pointer"
+              onClick={() => setActiveIndex(i === activeIndex ? null : i)}
+            >
+              {/* Project Image */}
+              <img
+                src={p.img}
+                alt={p.title}
+                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+              />
 
-export default Project
+              {/* Title & Tech always visible */}
+              <div className="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-black/70 to-transparent">
+                <h3 className="text-xl font-bold text-white">{p.title}</h3>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {p.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="px-2 py-1 text-xs bg-purple-500/30 text-purple-200 rounded-full"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <p className="text-xs text-gray-300 mt-1 md:hidden">
+                  Tap for details
+                </p>
+              </div>
+
+              {/* Overlay for buttons */}
+              <div
+                className={`absolute inset-0 bg-black/70 flex flex-col justify-center items-center transition-opacity duration-300
+                  ${activeIndex === i ? "opacity-100" : "opacity-0"} md:opacity-0 md:hover:opacity-100`}
+              >
+                <div className="flex gap-4">
+                  <a
+                    href={p.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-purple-500/80 rounded-lg text-white hover:bg-purple-600 transition"
+                  >
+                    Live
+                  </a>
+                  <a
+                    href={p.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-gray-700 rounded-lg text-white hover:bg-gray-600 transition"
+                  >
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -1,78 +1,61 @@
-import React from 'react'
-import AboutImg from '/heroimg.jpg'
+import { motion } from "framer-motion";
+import Img from "/heroimg.webp";
 
-const About = () => {
+export default function About() {
   return (
-    <div className='bg-black text-white
-    py-20' id='about'>
-        <div className='container mx-auto px-8 
-        md:px-16 lg:px-24'>
-        <h2 data-aos='zoom-in' className='text-4xl font-bold
-        text-center mb-12'>About Me</h2>
-        <div className='flex flex-col md:flex-row
-        items-center md:space-x-12'>
-            <img data-aos='fade-right' src={AboutImg} alt="" className='
-            w-72 h-80 rounded object-cover border-2  mb-6 md:mb-0'/>
-            <div className='flex-1'>
-                <p data-aos='fade-up' className='text-lg mb-3'>
-                I’m Divinegift, a skilled Web Developer specializing in HTML, CSS, JavaScript, React.js, and Node.js. I build fully functional, responsive, and high-performance websites tailored to client needs.
+    <section id="about" className="py-20 bg-gray-950 text-gray-300 relative overflow-hidden">
+      {/* Floating gradient behind image */}
+      <div className="absolute -top-20 -left-20 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-blob"></div>
+      <div className="absolute -bottom-32 -right-16 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
 
-With a focus on clean code, user experience, and scalability, I create modern web solutions that drive results. I’m currently open for hiring and ready to bring your ideas to life.
-      </p>
-                <div data-aos='fade-up' className='space-y-4'>
-                {/* <div className='flex items-center'>
-                    <label htmlFor="htmlandcss" className='w-2/12'>HTML & CSS</label>
-                    <div className='grow bg-gray-800 rounded-full h-2.5'>
-                    <div className='bg-gradient-to-r from-yellow-400 to-green-500 h-2.5 rounded-full 
-        transform transition-transform duration-300 
-      hover:scale-105 w-11/12'>
+      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+        
+        {/* Image */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8, y: -20 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.8, type: "spring", stiffness: 70 }}
+          className="flex justify-center"
+          whileHover={{ scale: 1.05 }}
+        >
+          <img
+            src={Img}
+            alt="Profile"
+            className="w-64 h-64 rounded-full border-4 border-purple-500/50 shadow-lg shadow-purple-500/30 object-cover"
+          />
+        </motion.div>
 
-                    </div>
-                    </div>
-                   </div>
-                <div className='flex items-center'>
-                    <label htmlFor="React JS" className='w-2/12'>React JS</label>
-                    <div className='grow bg-gray-800 rounded-full h-2.5'>
-                    <div className='bg-gradient-to-r from-yellow-400 to-green-500 h-2.5 rounded-full 
-        transform transition-transform duration-300 
-      hover:scale-105 w-11/12'>
+        {/* Text */}
+        <motion.div
+          initial={{ x: 50, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
+          <p className="mb-6 text-gray-400 leading-relaxed text-lg">
+            I’m a passionate web developer skilled in creating modern,
+            responsive, and user-friendly websites. I love working with{" "}
+            <span className="text-purple-400 font-semibold">React.js, Node.js, and Web3</span>{" "}
+            to bring ideas to life.
+          </p>
 
-                    </div>
-                    </div>
-                   </div>
-                   <div className='flex items-center'>
-                    <label htmlFor="Node JS" className='w-2/12'>Node JS</label>
-                    <div className='grow bg-gray-800 rounded-full h-2.5'>
-                    <div className='bg-gradient-to-r from-yellow-400 to-green-500 h-2.5 rounded-full 
-        transform transition-transform duration-300 
-      hover:scale-105 w-10/12'>
-
-                    </div>
-                    </div>
-                   </div> */}
-                </div>
-                <div  data-aos='fade-up' className=' flex justify-between
-                text-center'>
-              <div className='flex items-center gap-3'>
-                <h3  className='text-2xl font-bold text-transparent bg-clip-text
-            bg-gradient-to-r from-green-400 to-blue-500'>
-                    3+
-                </h3>
-                <p>Years of Experience</p>
-                </div>          
-                {/* <div>
-                <h3 className='text-2xl font-bold text-transparent bg-clip-text
-            bg-gradient-to-r from-green-400 to-blue-500'>
-                50+
-                </h3>
-                <p>Projects Completed</p>
-                </div>           */}
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
-  )
+          {/* Skill Badges */}
+          <div className="flex flex-wrap gap-3">
+            {["React", "Node.js", "MongoDB", "TailwindCSS", "Web3"].map((skill, i) => (
+              <motion.span
+                key={skill}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 + i * 0.1 }}
+                whileHover={{ scale: 1.1, backgroundColor: "#7c3aed/20" }}
+                className="px-4 py-2 text-sm rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/30 cursor-pointer transition"
+              >
+                {skill}
+              </motion.span>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
 }
-
-export default About

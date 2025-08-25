@@ -1,70 +1,52 @@
-import { init } from 'aos'
-import React from 'react'
-
+import { motion } from "framer-motion";
+import { Code2, Layout, Database } from "lucide-react";
 
 const services = [
-    {
-        id: 1,
-        title: "Web Design",
-        description: "Creating visually appealing, user-friendly, and responsive web designs that enhance user experience.",
-    },
-    {
-        id: 2,
-        title: "Frontend Development",
-        description: "Building dynamic and interactive user interfaces with modern frameworks like React.js for seamless web experiences.",
-    },
-    {
-        id: 3,
-        title: "Backend Development",
-        description: "Developing robust and scalable server-side applications using Node.js and databases to ensure smooth functionality.",
-    },
-    {
-        id: 4,
-        title: "MERN Stack Development",
-        description: "Full-stack development using MongoDB, Express.js, React.js, and Node.js to create high-performance web applications.",
-    },
-    {
-        id: 5,
-        title: "Effective Communication",
-        description: "Ensuring clear, structured, and efficient communication to streamline project development and collaboration.",
-    },
-    {
-        id: 6,
-        title: "Digital Marketing",
-        description: "Implementing SEO, social media, and content strategies to boost online visibility and business growth.",
-    }
+  {
+    icon: <Layout className="w-10 h-10 text-purple-400" />,
+    title: "Frontend Development",
+    desc: "Building modern, responsive, and user-friendly interfaces with React.js.",
+  },
+  {
+    icon: <Database className="w-10 h-10 text-purple-400" />,
+    title: "Backend Development",
+    desc: "Creating scalable APIs & databases with Node.js and MongoDB.",
+  },
+  {
+    icon: <Code2 className="w-10 h-10 text-purple-400" />,
+    title: "Web3 Integration",
+    desc: "Integrating smart contracts and blockchain solutions into apps.",
+  },
 ];
 
-const Service = () => {
+export default function Services() {
   return (
-    <div className='bg-black text-white
-        py-20' id='service'>
-            <div className='container mx-auto px-8 
-            md:px-16 lg:px-24'>
-            <h2  data-aos='zoom-in' className='text-4xl font-bold
-            text-center mb-12'>Services</h2>
-            <div  className='grid grid-cols-1 md:grid-cols-2
-            lg:grid-cols-3 gap-8'>
-{services.map((service) =>(
-    <div data-aos='fade-up'  key={service.id} className='
-    bg-gray-800 px-6 pb-6 rounded-lg hover:shadow-lg
-    transform transition-transform duration-300 hover:scale-105'>
-    <div className='text-right text-2xl font-bold text-transparent bg-clip-text
-            bg-gradient-to-r from-purple-500 to-blue-600'>
-{service.id}
-    </div>
-    <h3 className='mt-2 text-2xl font-bold text-transparent bg-clip-text
-            bg-gradient-to-bl from-purple-500 to-blue-600'>
-{service.title}
-    </h3>
-    <p className='mt-2 text-gray-300'>{service.description}</p>
-    <a href="#contact" className='mt-4 inline-block text-purple-400 hover:text-blue-500 underline'>Hire Me</a>
-    </div>
-))}
-            </div>
-            </div>
-            </div>
-  )
+    <section id="services" className="py-20 bg-gray-900 text-gray-300 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 text-center">
+        <h2 className="text-4xl font-bold text-white mb-12">Services</h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          {services.map((service, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.2, type: "spring", stiffness: 70 }}
+              whileHover={{ scale: 1.05, boxShadow: "0 15px 25px rgba(124,58,237,0.3)" }}
+              className="p-6 bg-gray-800/50 backdrop-blur-lg rounded-2xl border border-purple-500/20 hover:border-purple-400/40 transition cursor-pointer"
+            >
+              <motion.div
+                whileHover={{ rotate: [0, 10, -10, 0] }}
+                className="flex justify-center mb-4"
+              >
+                {service.icon}
+              </motion.div>
+              <h3 className="text-xl font-semibold text-white mb-2">{service.title}</h3>
+              <p className="text-gray-400">{service.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+        
+      </div>
+    </section>
+  );
 }
-
-export default Service

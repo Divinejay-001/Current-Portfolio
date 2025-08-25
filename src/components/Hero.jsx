@@ -1,40 +1,85 @@
-import React from 'react'
-import HeroImg from '/heroimg.webp'
-import { useTypewriter } from '../../hooks/useTypewriter';
+import { motion } from "framer-motion";
+import { ArrowDownCircle } from "lucide-react";
+
 const Hero = () => {
-  const displayText = useTypewriter("I'm Divine Johnson, Full-Stack Developer");
-
   return (
-    <div  className=' bg-black text-white text-center py-14'>
-      <div data-aos='zoom-in'>
-        <img
-          src={HeroImg}
-          alt=""
-          className='mx-auto mb-8 w-40 lg:w-64 lg:h-60 h-48 rounded-full lg:rounded-3xl object-cover transform transition-transform duration-300 hover:scale-105'
-        />
-        <h1 className='text-3xl md:text-4xl  font-bold min-h-[3rem]'>
-          <span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-700'>
-            {displayText}
-          </span>
-        </h1>
-        <p className="mt-4 text-lg text-center mx-auto max-w-md lg:max-w-lg text-gray-300 leading-relaxed">
-  I am a skilled frontend developer with backend expertise, specializing in creating fully responsive and high-performance websites. I focus on delivering seamless, interactive, and scalable digital solutions tailored to meet diverse client needs.
-</p>
+    <section
+      id="home"
+      className="relative min-h-screen flex flex-col justify-center items-center text-center overflow-hidden"
+    >
+      {/* Background Video */}
+     <video
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="absolute inset-0 w-full h-full object-cover opacity-100 brightness-125 contrast-110"
+>
 
-          <div className='mt-8 space-x-4'>
-          <a href="#contact">
-            <button className='bg-gradient-to-r from-purple-500 to-blue-600 text-white hidden md:inline transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full  hover:border-blue-400 hover:shadow-[0_0_20px_blue]'>
-              Contact Me
-            </button>
+        <source src="https://cdn.pixabay.com/video/2021/02/17/65495-514501835_tiny.mp4" 
+        type="video/mp4" />
+        {/* fallback image */}
+        <img
+          src="/heroimg.webp"
+          alt="Hero Background"
+          className="object-cover w-full h-full"
+        />
+      </video>
+
+      {/* Overlay for readability */}
+      <div className="absolute inset-0 bg-black/80"></div>
+
+      {/* Content */}
+      <motion.h1
+        initial={{ opacity: 0, y: -40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="text-5xl md:text-7xl font-bold text-white relative z-10"
+      >
+        Hi, I’m{" "}
+        <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+          Divinegift
+        </span>
+      </motion.h1>
+
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className="mt-4 text-lg md:text-xl text-gray-300 max-w-2xl relative z-10"
+      >
+        A Full-Stack Web Developer crafting sleek, scalable and modern web
+        applications.
+      </motion.p>
+
+      <motion.div
+        className="mt-6 flex gap-4 relative z-10"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1 }}
+      >
+        <a
+          href="#projects"
+          className="px-6 py-3 bg-purple-500 hover:bg-purple-600 text-white font-semibold rounded-full shadow-lg transition"
+        >
+          View Projects
         </a>
-          <a href="https://docs.google.com/document/d/1bW3lUtxepDbaS7QIyCXUS8p3NeOogc1KLHshw2tfT6s/edit?usp=sharing">
-            <button className='bg-gradient-to-r from-purple-500 to-red-400 text-white hidden md:inline transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full  hover:border-red-400 hover:shadow-[0_0_20px_red]'>
-              Resume
-            </button>
-          </a>
-        </div>
-      </div>
-    </div>
+        <a
+          href="#contact"
+          className="px-6 py-3 border border-purple-400 text-purple-400 rounded-full hover:bg-purple-500/20 transition"
+        >
+          Hire Me
+        </a>
+      </motion.div>
+
+      <motion.div
+        animate={{ y: [0, 10, 0] }}
+        transition={{ repeat: Infinity, duration: 2 }}
+        className="absolute bottom-8 z-10"
+      >
+        <ArrowDownCircle className="text-purple-400 w-8 h-8" />
+      </motion.div>
+    </section>
   );
 };
 
