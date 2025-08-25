@@ -30,7 +30,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-gray-900 to-black text-gray-300">
+    <section id="contact" className="py-20 bg-gradient-to-b from-[#0F0F28] to-black text-gray-300">
       <div className="max-w-6xl mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}

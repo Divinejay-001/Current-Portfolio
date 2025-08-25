@@ -38,7 +38,7 @@ function GalaxyBackground() {
     }));
 
     function animate() {
-      ctx.fillStyle = "rgba(15, 15, 40, 1)";
+      ctx.fillStyle = "rgba(15 15, 40, 1)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.fillStyle = "white";

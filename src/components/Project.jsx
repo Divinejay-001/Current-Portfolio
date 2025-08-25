@@ -48,7 +48,7 @@ export default function Projects() {
   const [activeIndex, setActiveIndex] = useState(null);
 
   return (
-    <section id="projects" className="py-20 bg-gray-950 text-gray-300">
+    <section id="projects" className="py-20 bg-[#0F0F28] text-gray-300">
       <div className="max-w-6xl mx-auto px-6 text-center">
         <h2 className="text-4xl font-bold text-white mb-12">Projects</h2>
         <div className="grid md:grid-cols-2 gap-10">

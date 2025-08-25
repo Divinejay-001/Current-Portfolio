@@ -13,7 +13,7 @@ const Hero = () => {
   loop
   muted
   playsInline
-  className="absolute inset-0 w-full h-full object-cover opacity-100 brightness-125 contrast-110"
+  className="absolute inset-0 w-full h-full object-cover opacity-100 brightness-200 backdrop-contrast-150"
 >
 
         <source src="https://cdn.pixabay.com/video/2021/02/17/65495-514501835_tiny.mp4" 
