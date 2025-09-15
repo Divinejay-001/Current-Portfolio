@@ -42,6 +42,13 @@ const projects = [
     link: "https://moneynest001.netlify.app/",
     github: "https://github.com/Divinejay-001/MoneyNest",
   },
+  {
+    title: "Collabora",
+    img: 'https://i.pinimg.com/736x/a3/d5/22/a3d522685ba5f133791fac60c97d8a13.jpg',
+    tech: ["MERN Stack", "Tailwind"],
+    link: "http://coollabora.netlify.app",
+    github: "https://github.com/Divinejay-001/Collabora",
+  },
 ];
 
 export default function Projects() {
