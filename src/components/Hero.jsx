@@ -1,86 +1,115 @@
-import { motion } from "framer-motion";
-import { ArrowDownCircle } from "lucide-react";
+import { motion, useMotionValue, useTransform } from "framer-motion";
+import { useEffect } from "react";
 
-const Hero = () => {
+const container = {
+  hidden: { opacity: 0 },
+  visible: { 
+    opacity: 1, 
+    transition: { staggerChildren: 0.15 } 
+  }
+};
+
+const item = {
+  hidden: { y: 30, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 80 } }
+};
+
+export default function Hero() {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  // blobs move subtly with mouse
+  const blob1X = useTransform(mouseX, [0, window.innerWidth], [-20, 20]);
+  const blob1Y = useTransform(mouseY, [0, window.innerHeight], [-20, 20]);
+  const blob2X = useTransform(mouseX, [0, window.innerWidth], [20, -20]);
+  const blob2Y = useTransform(mouseY, [0, window.innerHeight], [20, -20]);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseX, mouseY]);
+
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col justify-center items-center text-center overflow-hidden"
+      className="relative flex items-center justify-center min-h-screen bg-[#0F0F28] text-center overflow-hidden"
     >
-      {/* Background Video */}
-     <video
-  autoPlay
-  loop
-  muted
-  playsInline
-  className="absolute inset-0 w-full h-full object-cover opacity-100 brightness-200 backdrop-contrast-150"
->
-
-        <source src="https://cdn.pixabay.com/video/2021/02/17/65495-514501835_tiny.mp4" 
-        type="video/mp4" />
-        {/* fallback image */}
-        <img
-          src="/heroimg.webp"
-          alt="Hero Background"
-          className="object-cover w-full  h-full"
-        />
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover opacity-30"
+      >
+        <source src="https://www.pexels.com/download/video/11387073/" type="video/mp4" />
       </video>
 
-      {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-black/80"></div>
-
-      {/* Content */}
-      <motion.h1
-        initial={{ opacity: 0, y: -40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="text-5xl md:text-7xl font-bold text-white relative z-10"
-      >
-        Hi, I’m{" "}
-        <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-          Divinegift
-        </span>
-      </motion.h1>
-
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-        className="mt-4 text-lg md:text-xl text-gray-300 max-w-2xl relative z-10"
-      >
-        A Full-Stack Web Developer crafting sleek, scalable and modern web
-        applications.
-      </motion.p>
-
+      {/* Interactive Floating Blobs */}
       <motion.div
-        className="mt-6 flex gap-4 relative z-10"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1 }}
-      >
-        <a
-          href="#projects"
-          className="px-6 py-3 bg-purple-500 hover:bg-purple-600 text-white font-semibold rounded-full shadow-lg transition"
-        >
-          View Projects
-        </a>
-        <a
-          href="#contact"
-          className="px-6 py-3 border border-purple-400 text-purple-400 rounded-full hover:bg-purple-500/20 transition"
-        >
-          Hire Me
-        </a>
-      </motion.div>
-
+        className="absolute top-10 -left-20 w-72 h-72 bg-purple-500/30 rounded-full blur-3xl"
+        style={{ x: blob1X, y: blob1Y }}
+        animate={{ y: [0, 30, 0], x: [0, -20, 0] }}
+        transition={{ repeat: Infinity, duration: 8 }}
+      />
       <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-8 z-10"
+        className="absolute bottom-10 -right-20 w-96 h-96 bg-blue-500/25 rounded-full blur-3xl"
+        style={{ x: blob2X, y: blob2Y }}
+        animate={{ y: [0, -40, 0], x: [0, 20, 0] }}
+        transition={{ repeat: Infinity, duration: 10 }}
+      />
+
+      {/* Hero Content */}
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="visible"
+        className="relative z-10 max-w-3xl px-6"
       >
-        <ArrowDownCircle className="text-purple-400 w-8 h-8" />
+        <motion.h1
+          variants={item}
+          className="text-5xl md:text-7xl font-extrabold leading-tight text-white mb-6"
+        >
+          Hi, I’m{" "}
+          <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+            Divinegift
+          </span>
+        </motion.h1>
+
+        <motion.p
+          variants={item}
+          className="text-lg md:text-xl text-gray-400 mb-8"
+        >
+          A passionate web developer crafting{" "}
+          <span className="text-purple-400 font-semibold">modern websites</span>{" "}
+          with React, Node.js, and Web3.
+        </motion.p>
+
+        <motion.div
+          variants={item}
+          className="flex justify-center gap-6 flex-wrap"
+        >
+          <motion.a
+            href="#projects"
+            whileHover={{ scale: 1.08, boxShadow: "0px 0px 20px rgba(168,85,247,0.6)" }}
+            className="px-6 py-3 bg-purple-500 text-white rounded-lg font-semibold transition"
+          >
+            View My Work
+          </motion.a>
+
+          <motion.a
+            href="#contact"
+            whileHover={{ scale: 1.08, boxShadow: "0px 0px 20px rgba(59,130,246,0.6)" }}
+            className="px-6 py-3 bg-blue-500 text-white rounded-lg font-semibold transition"
+          >
+            Let’s Connect
+          </motion.a>
+        </motion.div>
       </motion.div>
     </section>
   );
-};
-
-export default Hero;
+}

@@ -7,23 +7,26 @@ import Btn from '../Btn';
 const Contact = () => {
   const form = useRef();
   const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState(null); // "success" | "error" | null
 
   const sendEmail = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setStatus(null);
+
     try {
-      const result = await emailjs.sendForm(
+      await emailjs.sendForm(
         'service_o2mv64m',
         'template_wnxfh8q',
         form.current,
         '-6O_x7lhtYIqwaClF'
       );
-      console.log(result.text);
-      alert('Message sent successfully!');
+
+      setStatus("success");
       form.current.reset();
     } catch (error) {
       console.error(error.text);
-      alert('Failed to send message, please try again later.');
+      setStatus("error");
     } finally {
       setIsLoading(false);
     }
@@ -67,7 +70,7 @@ const Contact = () => {
                 >
                   <span className="text-purple-400 w-5 h-5">{item.icon}</span>
                   {item.link ? (
-                    <a href={item.link} className="text-white -pl-2 hover:underline">{item.text}</a>
+                    <a href={item.link} className="text-white hover:underline">{item.text}</a>
                   ) : (
                     <span className="text-white">{item.text}</span>
                   )}
@@ -100,13 +103,22 @@ const Contact = () => {
               className="w-full px-4 py-3 rounded-lg bg-gray-900/60 border border-purple-500/30 text-white focus:border-purple-400 focus:ring focus:ring-purple-400/20 transition"
             />
             <textarea
-              name="msg"
+              name="message"
               placeholder="Your Message"
               rows="5"
               required
               className="w-full px-4 py-3 rounded-lg bg-gray-900/60 border border-purple-500/30 text-white focus:border-purple-400 focus:ring focus:ring-purple-400/20 transition"
             ></textarea>
+
             <Btn disabled={isLoading} text={isLoading ? 'Sending...' : 'Send Message'} />
+
+            {/* Inline Feedback */}
+            {status === "success" && (
+              <p className="text-green-400 mt-2">✅ Message sent successfully!</p>
+            )}
+            {status === "error" && (
+              <p className="text-red-400 mt-2">❌ Failed to send message. Please try again later.</p>
+            )}
           </motion.form>
         </div>
       </div>

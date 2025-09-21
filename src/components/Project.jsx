@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Flower from "../assets/flower.webp";
 import Headset from "../assets/headset.webp";
@@ -42,79 +41,54 @@ const projects = [
     link: "https://moneynest001.netlify.app/",
     github: "https://github.com/Divinejay-001/MoneyNest",
   },
-  {
-    title: "Collabora",
-    img: 'https://i.pinimg.com/736x/a3/d5/22/a3d522685ba5f133791fac60c97d8a13.jpg',
-    tech: ["MERN Stack", "Tailwind"],
-    link: "http://coollabora.netlify.app",
-    github: "https://github.com/Divinejay-001/Collabora",
-  },
 ];
 
 export default function Projects() {
-  const [activeIndex, setActiveIndex] = useState(null);
-
   return (
-    <section id="projects" className="py-20 bg-[#0F0F28] text-gray-300">
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2 className="text-4xl font-bold text-white mb-12">Projects</h2>
-        <div className="grid md:grid-cols-2 gap-10">
-          {projects.map((p, i) => (
+    <section id="projects" className="py-20 bg-[#0F0F28] text-gray-300 relative overflow-hidden">
+      {/* Floating blobs */}
+      <motion.div
+        className="absolute -top-32 -left-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
+        animate={{ y: [0, 20, 0], x: [0, -20, 0] }}
+        transition={{ repeat: Infinity, duration: 12 }}
+      />
+      <motion.div
+        className="absolute top-1/3 -right-32 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
+        animate={{ y: [0, -20, 0], x: [0, 20, 0] }}
+        transition={{ repeat: Infinity, duration: 14 }}
+      />
+
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="text-4xl font-bold text-center text-white mb-12"
+        >
+          My Projects
+        </motion.h2>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {projects.map((project, i) => (
             <motion.div
-              key={i}
+              key={project.title}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.2 }}
-              className="relative rounded-xl overflow-hidden border border-purple-500/20 shadow-lg cursor-pointer"
-              onClick={() => setActiveIndex(i === activeIndex ? null : i)}
+              transition={{ duration: 0.7, delay: i * 0.2 }}
+              whileHover={{ scale: 1.05 }}
+              className="bg-purple-500/5 border border-purple-500/20 rounded-xl overflow-hidden shadow-lg shadow-purple-500/10 flex flex-col justify-between"
             >
-              {/* Project Image */}
-              <img
-                src={p.img}
-                alt={p.title}
-                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-
-              {/* Title & Tech always visible */}
-              <div className="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-black/70 to-transparent">
-                <h3 className="text-xl font-bold text-white">{p.title}</h3>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {p.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="px-2 py-1 text-xs bg-purple-500/30 text-purple-200 rounded-full"
-                    >
-                      {t}
-                    </span>
+              <img src={project.img} alt={project.title} className="w-full h-48 object-cover"/>
+              <div className="p-6 flex flex-col flex-1 justify-between">
+                <h3 className="text-xl font-semibold text-purple-400 mb-3">{project.title}</h3>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tech.map((t) => (
+                    <span key={t} className="px-3 py-1 text-xs rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">{t}</span>
                   ))}
                 </div>
-                <p className="text-xs text-gray-300 mt-1 md:hidden">
-                  Tap for details
-                </p>
-              </div>
-
-              {/* Overlay for buttons */}
-              <div
-                className={`absolute inset-0 bg-black/70 flex flex-col justify-center items-center transition-opacity duration-300
-                  ${activeIndex === i ? "opacity-100" : "opacity-0"} md:opacity-0 md:hover:opacity-100`}
-              >
-                <div className="flex gap-4">
-                  <a
-                    href={p.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 bg-purple-500/80 rounded-lg text-white hover:bg-purple-600 transition"
-                  >
-                    Live
-                  </a>
-                  <a
-                    href={p.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 bg-gray-700 rounded-lg text-white hover:bg-gray-600 transition"
-                  >
-                    GitHub
-                  </a>
+                <div className="flex justify-between items-center">
+                  <a href={project.link} className="text-sm text-purple-400 hover:underline">Live →</a>
+                  <a href={project.github} className="text-sm text-purple-400 hover:underline">GitHub →</a>
                 </div>
               </div>
             </motion.div>
