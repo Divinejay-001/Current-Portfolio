@@ -86,9 +86,24 @@ export default function Projects() {
                     <span key={t} className="px-3 py-1 text-xs rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">{t}</span>
                   ))}
                 </div>
-                <div className="flex justify-between items-center">
-                  <a href={project.link} className="text-sm text-purple-400 hover:underline">Live →</a>
-                  <a href={project.github} className="text-sm text-purple-400 hover:underline">GitHub →</a>
+                <div className="flex justify-between gap-4">
+                                 <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 text-center px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-medium shadow-lg transition hover:shadow-[0_0_20px_4px_rgba(236,72,153,0.6)]"
+                >
+                  Live Demo
+                </a>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 text-center px-4 py-2 rounded-lg bg-gradient-to-r from-gray-700 to-gray-900 text-white text-sm font-medium shadow-lg transition hover:shadow-[0_0_20px_4px_rgba(107,114,128,0.7)]"
+                >
+                  GitHub
+                </a>
+
                 </div>
               </div>
             </motion.div>
