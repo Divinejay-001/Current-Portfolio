@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import Flower from "../assets/flower.webp";
 import Headset from "../assets/headset.webp";
 import Eccom from "../assets/Eccom.webp";
@@ -71,13 +72,15 @@ export default function Projects() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project, i) => (
             <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: i * 0.2 }}
-              whileHover={{ scale: 1.05 }}
-              className="bg-purple-500/5 border border-purple-500/20 rounded-xl overflow-hidden shadow-lg shadow-purple-500/10 flex flex-col justify-between"
-            >
+  key={project.title}
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, delay: i * 0.2 }}
+  whileHover={{ scale: 1.05 }}
+  viewport={{ once: true }}   // ✅ ensures it animates only once
+  className="bg-purple-500/5 border border-purple-500/20 rounded-xl overflow-hidden shadow-lg shadow-purple-500/10 flex flex-col justify-between"
+>
+
               <img src={project.img} alt={project.title} className="w-full h-48 object-cover"/>
               <div className="p-6 flex flex-col flex-1 justify-between">
                 <h3 className="text-xl font-semibold text-purple-400 mb-3">{project.title}</h3>
@@ -86,25 +89,26 @@ export default function Projects() {
                     <span key={t} className="px-3 py-1 text-xs rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">{t}</span>
                   ))}
                 </div>
-                <div className="flex justify-between gap-4">
-                                 <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 text-center px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-medium shadow-lg transition hover:shadow-[0_0_20px_4px_rgba(236,72,153,0.6)]"
-                >
-                  Live Demo
-                </a>
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 text-center px-4 py-2 rounded-lg bg-gradient-to-r from-gray-700 to-gray-900 text-white text-sm font-medium shadow-lg transition hover:shadow-[0_0_20px_4px_rgba(107,114,128,0.7)]"
-                >
-                  GitHub
-                </a>
-
-                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <a
+    href={project.link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-medium shadow-lg transition hover:shadow-[0_0_20px_4px_rgba(236,72,153,0.6)]"
+  >
+    <FaExternalLinkAlt className="text-white text-base" />
+    Live Demo
+  </a>
+  <a
+    href={project.github}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-gray-700 to-gray-900 text-white text-sm font-medium shadow-lg transition hover:shadow-[0_0_20px_4px_rgba(107,114,128,0.7)]"
+  >
+    <FaGithub className="text-white text-base" />
+    GitHub
+  </a>
+</div>
               </div>
             </motion.div>
           ))}
