@@ -59,6 +59,7 @@ export default function Services() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
           className="text-4xl font-bold text-center text-white mb-12"
         >
           My Services
@@ -73,6 +74,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.2 }}
               whileHover={{ scale: 1.05 }}
+              viewport={{ once: true }}
               className="bg-purple-500/5 border border-purple-500/20 rounded-xl p-6 text-center shadow-lg shadow-purple-500/10"
             >
               <h3 className="text-xl font-semibold text-purple-400 mb-3">
@@ -88,6 +90,7 @@ export default function Services() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
           className="text-2xl font-semibold text-center text-white mb-8"
         >
           Tech Stack I Use
@@ -101,6 +104,7 @@ export default function Services() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
               whileHover={{ scale: 1.2, rotate: 5 }}
+              viewport={{ once: true }}
               className="flex flex-col items-center gap-2 cursor-pointer"
             >
               {stack.icon}

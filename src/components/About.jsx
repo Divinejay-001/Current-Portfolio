@@ -37,6 +37,7 @@ export default function About() {
         <motion.div
           variants={item}
           whileHover={{ scale: 1.05 }}
+          viewport={{ once: true }}
           className="flex justify-center"
         >
           <img
