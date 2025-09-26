@@ -32,7 +32,7 @@ const projects = [
     title: "VistaXplore",
     img: Travel,
     tech: ["Frontend", "React"],
-    link: "https://vistaxplore.onrender.com",
+    link: "https://vista-xplore.vercel.app/",
     github: "https://github.com/Divinejay-001/VistaXplore",
   },
   {
