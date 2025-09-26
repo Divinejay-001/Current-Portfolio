@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect } from "react";
 
 const container = {
@@ -15,14 +15,18 @@ const item = {
 };
 
 export default function Hero() {
-  const mouseX = useMotionValue(0);
+   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // blobs move subtly with mouse
-  const blob1X = useTransform(mouseX, [0, window.innerWidth], [-20, 20]);
-  const blob1Y = useTransform(mouseY, [0, window.innerHeight], [-20, 20]);
-  const blob2X = useTransform(mouseX, [0, window.innerWidth], [20, -20]);
-  const blob2Y = useTransform(mouseY, [0, window.innerHeight], [20, -20]);
+  // Add spring for smooth, slow following
+  const springX = useSpring(mouseX, { stiffness: 20, damping: 50 });
+  const springY = useSpring(mouseY, { stiffness: 20, damping: 50 });
+
+  // blobs move subtly with mouse (but smooth now)
+  const blob1X = useTransform(springX, [0, window.innerWidth], [-20, 20]);
+  const blob1Y = useTransform(springY, [0, window.innerHeight], [-20, 20]);
+  const blob2X = useTransform(springX, [0, window.innerWidth], [20, -20]);
+  const blob2Y = useTransform(springY, [0, window.innerHeight], [20, -20]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -39,7 +43,7 @@ export default function Hero() {
       className="relative flex items-center justify-center min-h-screen bg-[#0F0F28] text-center overflow-hidden"
     >
       {/* Video Background */}
-      <video
+      {/* <video
         autoPlay
         loop
         muted
@@ -47,17 +51,22 @@ export default function Hero() {
         className="absolute top-0 left-0 w-full h-full object-cover opacity-30"
       >
         <source src="https://www.pexels.com/download/video/11387073/" type="video/mp4" />
-      </video>
-
-      {/* Interactive Floating Blobs */}
-      <motion.div
-        className="absolute top-10 -left-20 w-72 h-72 bg-purple-500/30 rounded-full blur-3xl"
-        style={{ x: blob1X, y: blob1Y }}
-        animate={{ y: [0, 30, 0], x: [0, -20, 0] }}
-        transition={{ repeat: Infinity, duration: 8 }}
+      </video> */}
+      <img
+        src="https://i.pinimg.com/1200x/85/53/cc/8553cc1dcf8d1c1bacd5a1afca5f9b58.jpg"
+        alt="Background"
+        className="absolute top-0 left-0 w-full h-full object-cover opacity-30"
       />
+      {/* Interactive Floating Blobs */}
+    <motion.div
+  className="absolute top-24 -left-20 w-96 h-14 bg-purple-500/30 blur-xl rounded-md  origin-center"
+  style={{ x: blob1X, y: blob1Y }}
+  animate={{ rotate: [45, 50, 45] }}
+  transition={{ repeat: Infinity, duration: 8 }}
+/>
+
       <motion.div
-        className="absolute bottom-10 -right-20 w-96 h-96 bg-blue-500/25 rounded-full blur-3xl"
+        className="absolute bottom-10 -right-20 w-96 h-96 bg-blue-500/25 rounded-full blur-2xl"
         style={{ x: blob2X, y: blob2Y }}
         animate={{ y: [0, -40, 0], x: [0, 20, 0] }}
         transition={{ repeat: Infinity, duration: 10 }}
