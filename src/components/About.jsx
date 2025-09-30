@@ -41,7 +41,7 @@ export default function About() {
           className="flex justify-center"
         >
           <img
-            src={Img}
+            src='https://i.pinimg.com/1200x/85/4b/21/854b2114e53213139d0c6367f33a36d9.jpg'
             alt="Profile"
             className="w-64 h-64 rounded-full border-4 border-purple-500/50 shadow-lg shadow-purple-500/30 object-cover"
           />
