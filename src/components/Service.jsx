@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useRef } from "react";
+
 import {
   SiNextdotjs,
   SiReact,
@@ -43,13 +45,30 @@ export default function Services() {
     { icon: <SiMongodb />, name: "MongoDB" },
   ];
 
+  const cardRefs = useRef([]);
+
+  const handleMouseMove = (index) => (e) => {
+  const card = cardRefs.current[index];
+  if (!card) return;
+
+  const rect = card.getBoundingClientRect();
+  const mouseX = e.clientX - rect.left;
+  const mouseY = e.clientY - rect.top;
+
+  // glow rotation
+  let angle = Math.atan2(mouseY - rect.height / 2, mouseX - rect.width / 2) * (180 / Math.PI);
+  angle = (angle + 360) % 360;
+
+ 
+};
+
+
   return (
     <section
       id="services"
       className="py-20 bg-[#0F0F28] text-gray-300 relative overflow-hidden"
     >
       {/* Floating background blobs */}
-      <div className="absolute -top-24 -left-16 w-80 h-80 bg-purple-500/30 rounded-full blur-3xl animate-blob"></div>
       <div className="absolute top-40 -right-32 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
       <div className="absolute -bottom-32 left-1/2 w-96 h-96 bg-pink-500/25 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
 
@@ -70,13 +89,16 @@ export default function Services() {
           {services.map((service, i) => (
             <motion.div
               key={service.title}
+              ref={(el) => (cardRefs.current[i] = el)}
+              onMouseMove={handleMouseMove(i)}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.2 }}
               whileHover={{ scale: 1.05 }}
               viewport={{ once: true }}
-              className="bg-purple-500/5 border border-purple-500/20 rounded-xl p-6 text-center shadow-lg shadow-purple-500/10"
+              className="card card-border rounded-xl p-6 text-center  shadow-lg shadow-purple-300/10 relative"
             >
+              <div className="glow" />
               <h3 className="text-xl font-semibold text-purple-400 mb-3">
                 {service.title}
               </h3>

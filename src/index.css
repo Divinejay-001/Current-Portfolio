@@ -27,3 +27,32 @@
     background: purple; /* Change color when hovered */
   }
   
+ .card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--start, 0deg),
+    rgba(168, 85, 247, 0.6),  /* purple */
+    rgba(59, 130, 246, 0.6), /* blue */
+    rgba(236, 72, 153, 0.6), /* pink */
+    rgba(168, 85, 247, 0.6)  /* loop */
+  );
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+
+.card:hover::before {
+  opacity: 1;
+}
