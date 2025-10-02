@@ -49,6 +49,13 @@ const projects = [
     link: "https://coollabora.netlify.app/",
     github: "https://github.com/Divinejay-001/Collabora",
   },
+  {
+    title: "3d Portfolio",
+    img: "https://i.pinimg.com/1200x/70/48/b3/7048b30c361e2f0418300d69d6faaca3.jpg",
+    tech: ["Frontend", "React", "Tailwind"],
+    link: "https://3-d-portfolio-sigma-ivory.vercel.app/",
+    github: "https://github.com/Divinejay-001/3D-Portfolio",
+  },
 ];
 
 export default function Projects() {

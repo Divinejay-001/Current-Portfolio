@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import Img from "/heroimg.webp";
+import Img from "/Me.webp";
 
 const container = {
   hidden: { opacity: 0 },
@@ -41,7 +41,7 @@ export default function About() {
           className="flex justify-center"
         >
           <img
-            src='https://i.pinimg.com/1200x/85/4b/21/854b2114e53213139d0c6367f33a36d9.jpg'
+            src='https://i.pinimg.com/736x/b9/d3/47/b9d3472d6d67f02003a6d317066ab626.jpg'
             alt="Profile"
             className="w-64 h-64 rounded-full border-4 border-purple-500/50 shadow-lg shadow-purple-500/30 object-cover"
           />
