@@ -13,7 +13,7 @@ const item = {
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-[#0F0F28] text-gray-300 relative overflow-hidden">
+    <section id="about" className="py-20  text-gray-300 relative overflow-hidden">
       {/* Floating Blobs */}
       <motion.div
         className="absolute -top-20 -left-20 w-72 h-72 bg-purple-500/30 rounded-full blur-3xl"

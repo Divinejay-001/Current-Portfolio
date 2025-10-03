@@ -22,7 +22,7 @@ function App() {
     AOS.refresh();
 },[]);
   return (
-    <div className='overflow-hidden select-none'>
+    <div className='bg-[#0F0F28] overflow-hidden select-none'>
      <Navbar/>
      <Hero/>
      <About/>
