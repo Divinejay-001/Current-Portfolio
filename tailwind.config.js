@@ -7,10 +7,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#fea928',
-        secondary: '#ed8900',
-        tertiary: '#D22DC9',
-      },
+      bg: "#0E0E11",
+      surface: "#16161A",
+      primary: "#14B8A6",
+      accent: "#2DD4BF",
+      text: "#FAFAFA",
+      muted: "#A1A1AA",
+      border: "#262626",
+    },
      container: {
        center: true,
        padding:{

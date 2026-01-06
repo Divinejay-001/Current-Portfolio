@@ -18,13 +18,13 @@
   
   /* Scrollbar thumb (scroll handle) */
   ::-webkit-scrollbar-thumb {
-    background:purple; /* Change to your desired thumb color */
+    background:#14B8A6; /* Change to your desired thumb color */
     border-radius: 10px; /* Optional: makes the thumb rounded */
   }
   
   /* Scrollbar thumb on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: purple; /* Change color when hovered */
+    background: #262626; /* Change color when hovered */
   }
   
  .card {

@@ -1,74 +1,65 @@
 import { motion } from "framer-motion";
-import Img from "/Me.webp";
-
-const container = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
-};
-
-const item = {
-  hidden: { y: 30, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 80 } }
-};
 
 export default function About() {
   return (
-    <section id="about" className="py-20  text-gray-300 relative overflow-hidden">
-      {/* Floating Blobs */}
+    <section
+      id="about"
+      className="py-24 bg-bg text-text relative"
+    >
       <motion.div
-        className="absolute -top-20 -left-20 w-72 h-72 bg-purple-500/30 rounded-full blur-3xl"
-        animate={{ y: [0, 20, 0], x: [0, -20, 0] }}
-        transition={{ repeat: Infinity, duration: 10 }}
-      />
-      <motion.div
-        className="absolute -bottom-32 -right-16 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
-        animate={{ y: [0, -20, 0], x: [0, 20, 0] }}
-        transition={{ repeat: Infinity, duration: 12 }}
-      />
-
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="visible"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10"
+        className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-14 items-center"
       >
         {/* Image */}
-        <motion.div
-          variants={item}
-          whileHover={{ scale: 1.05 }}
-          viewport={{ once: true }}
-          className="flex justify-center"
-        >
+        <div className="flex justify-center">
           <img
-            src='https://i.pinimg.com/736x/b9/d3/47/b9d3472d6d67f02003a6d317066ab626.jpg'
-            alt="Profile"
-            className="w-64 h-64 rounded-full border-4 border-purple-500/50 shadow-lg shadow-purple-500/30 object-cover"
+            src="https://i.pinimg.com/736x/b9/d3/47/b9d3472d6d67f02003a6d317066ab626.jpg"
+            alt="Divinegift portrait"
+            className="w-60 h-60 rounded-full object-cover border border-border"
           />
-        </motion.div>
+        </div>
 
         {/* Text */}
-        <motion.div variants={item}>
-          <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
-          <p className="mb-6 text-gray-400 leading-relaxed text-lg">
-            I’m a passionate web developer skilled in creating modern, responsive, and user-friendly websites. I love working with{" "}
-            <span className="text-purple-400 font-semibold">React.js, Node.js, and Web3</span> to bring ideas to life.
+        <div>
+          <h2 className="text-3xl md:text-4xl font-semibold mb-6">
+            About Me
+          </h2>
+
+          <p className="text-muted text-lg leading-relaxed mb-6">
+            I’m a frontend developer focused on building clean, responsive, and
+            scalable web applications. I enjoy working on products that solve
+            real problems and are easy for users to interact with.
           </p>
 
-          {/* Skill Badges */}
+          <p className="text-muted text-lg leading-relaxed mb-8">
+            I mainly work with React and modern frontend tools to build landing
+            pages, dashboards, and small SaaS products. I value clarity,
+            maintainability, and performance in every project I work on.
+          </p>
+
+          {/* Skills */}
           <div className="flex flex-wrap gap-3">
-            {["Next.js", "React.js", "Supabase", "JavaScript", "Tailwind", "HTML", "MongoDB"].map((skill, i) => (
-              <motion.span
+            {[
+              "React",
+              "JavaScript",
+              "Tailwind CSS",
+              "Supabase",
+              "Firebase",
+              "Node.js",
+              "MongoDB",
+            ].map((skill) => (
+              <span
                 key={skill}
-                variants={item}
-                whileHover={{ scale: 1.1, backgroundColor: "#7c3aed/20" }}
-                className="px-4 py-2 text-sm rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/30 cursor-pointer transition"
+                className="px-4 py-2 text-sm rounded-md bg-surface text-muted border border-border"
               >
                 {skill}
-              </motion.span>
+              </span>
             ))}
           </div>
-        </motion.div>
+        </div>
       </motion.div>
     </section>
   );

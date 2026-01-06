@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -32,7 +31,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // close mobile menu on route/hash change (optional)
   useEffect(() => {
     const onHashChange = () => setOpen(false);
     window.addEventListener("hashchange", onHashChange);
@@ -45,7 +43,9 @@ export default function Navbar() {
       initial="hidden"
       animate="visible"
       className={`fixed top-0 left-0 w-full z-50 transition-all ${
-        scrolled ? "bg-black/80 backdrop-blur-md border-b border-white/10 py-2" : "bg-transparent py-4"
+        scrolled
+          ? "bg-[#0E0E11]/80 backdrop-blur-md border-b border-[#262626] py-2"
+          : "bg-transparent py-4"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
@@ -53,19 +53,19 @@ export default function Navbar() {
         <a href="#home" className="flex items-center gap-3">
           <motion.span
             whileHover={{ scale: 1.04 }}
-            className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"
+            className="text-2xl font-bold bg-gradient-to-r from-[#14B8A6] to-[#2DD4BF] bg-clip-text text-transparent"
           >
             Divinegift
           </motion.span>
         </a>
 
         {/* Desktop links */}
-        <nav className="hidden md:flex gap-8 items-center text-sm text-gray-200">
+        <nav className="hidden md:flex gap-8 items-center text-sm text-[#FAFAFA]">
           {NAV_LINKS.map((item) => (
             <motion.a
               key={item}
               href={`#${item.toLowerCase()}`}
-              whileHover={{ scale: 1.05, color: "#a78bfa" }}
+              whileHover={{ scale: 1.05, color: "#14B8A6" }}
               transition={{ duration: 0.14 }}
               className="cursor-pointer"
             >
@@ -80,7 +80,7 @@ export default function Navbar() {
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label="Toggle menu"
-          className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-purple-500/40 text-gray-200"
+          className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#14B8A6]/40 text-[#FAFAFA]"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
@@ -96,7 +96,7 @@ export default function Navbar() {
             animate="visible"
             exit="exit"
             variants={mobilePanel}
-            className="md:hidden bg-black/95 border-t border-white/5"
+            className="md:hidden bg-[#16161A]/95 border-t border-[#262626]"
           >
             <div className="px-6 py-6 flex flex-col gap-4">
               {NAV_LINKS.map((item) => (
@@ -105,7 +105,7 @@ export default function Navbar() {
                   variants={mobileItem}
                   href={`#${item.toLowerCase()}`}
                   onClick={() => setOpen(false)}
-                  className="text-gray-200 hover:text-purple-400 transition py-2"
+                  className="text-[#FAFAFA] hover:text-[#14B8A6] transition py-2"
                 >
                   {item}
                 </motion.a>
