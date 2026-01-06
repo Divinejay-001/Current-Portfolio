@@ -18,7 +18,7 @@ export default function Hero() {
         <h1 className="text-4xl md:text-6xl font-bold text-text mb-6 leading-tight">
           Frontend Developer building{" "}
           <span className="text-primary">
-            fast React websites & dashboards
+            fast Performance websites & dashboards
           </span>
         </h1>
 
