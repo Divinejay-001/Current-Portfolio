@@ -31,10 +31,10 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="relative py-24 bg-[#0F0F28] text-white overflow-hidden">
+    <section id="contact" className="relative py-24 bg-bg text-white overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] bg-purple-500/20 blur-3xl rounded-full" />
+        <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] bg-primary/20 blur-3xl rounded-full" />
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-pink-500/20 blur-3xl rounded-full" />
       </div>
 
@@ -48,7 +48,7 @@ const ContactSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary via-pink-400 to-purple-400 bg-clip-text text-transparent">
               Let's Work Together
             </span>
           </h2>
