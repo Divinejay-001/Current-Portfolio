@@ -68,7 +68,7 @@ const projects = [
   problem:
     "Chaindustry needed a clean, responsive frontend to present their platform clearly and support continuous updates as the product evolved.",
   tech: ["React", "Tailwind", "Frontend"],
-  link: "https://chaindustry.io",
+  link: "https://www.chaindustry.io/",
   // no github – client work
 },
 ];
