@@ -26,16 +26,6 @@ const projects = [
     link: "https://coollabora.netlify.app/",
     github: "https://github.com/Divinejay-001/Collabora",
   },
-  
-  {
-    title: "Headset Product Website",
-    img: Headset,
-    problem:
-      "A product landing page was needed to clearly present features and drive customer interest.",
-    tech: ["React"],
-    link: "https://headset-dcj.onrender.com",
-    github: "https://github.com/Divinejay-001/Headset-website",
-  },
   {
     title: "Shophere Ecommerce",
     img: Eccom,
@@ -45,6 +35,16 @@ const projects = [
     link: "https://shoppy-cx1x.onrender.com",
     github: "https://github.com/Divinejay-001/Shoppy",
   },
+  {
+    title: "Headset Product Website",
+    img: Headset,
+    problem:
+      "A product landing page was needed to clearly present features and drive customer interest.",
+    tech: ["React"],
+    link: "https://headset-dcj.onrender.com",
+    github: "https://github.com/Divinejay-001/Headset-website",
+  },
+  
   {
     title: "VistaXplore",
     img: Travel,
