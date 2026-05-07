@@ -35,15 +35,7 @@ const projects = [
     link: "https://shoppy-cx1x.onrender.com",
     github: "https://github.com/Divinejay-001/Shoppy",
   },
-  {
-    title: "Headset Product Website",
-    img: Headset,
-    problem:
-      "A product landing page was needed to clearly present features and drive customer interest.",
-    tech: ["React"],
-    link: "https://headset-dcj.onrender.com",
-    github: "https://github.com/Divinejay-001/Headset-website",
-  },
+  
   
   {
     title: "VistaXplore",
@@ -53,6 +45,16 @@ const projects = [
     tech: ["React"],
     link: "https://vista-xplore.vercel.app/",
     github: "https://github.com/Divinejay-001/VistaXplore",
+  },
+
+  {
+    title: "Headset Product Website",
+    img: Headset,
+    problem:
+      "A product landing page was needed to clearly present features and drive customer interest.",
+    tech: ["React"],
+    link: "https://headset-dcj.onrender.com",
+    github: "https://github.com/Divinejay-001/Headset-website",
   },
   // {
   //   title: "CashMind (MoneyNest)",
