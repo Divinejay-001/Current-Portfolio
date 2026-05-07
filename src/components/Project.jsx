@@ -63,15 +63,15 @@ const projects = [
   //   link: "https://moneynest001.netlify.app/",
   //   github: "https://github.com/Divinejay-001/MoneyNest",
   // },
-  {
-    title: "Flower App",
-    img: Flower,
-    problem:
-      "Local flower vendors needed a simple online presence to showcase products and receive orders.",
-    tech: ["React", "Tailwind"],
-    link: "https://flower-store.onrender.com",
-    github: "https://github.com/Divinejay-001/Flower-website",
-  },
+  // {
+  //   title: "Flower App",
+  //   img: Flower,
+  //   problem:
+  //     "Local flower vendors needed a simple online presence to showcase products and receive orders.",
+  //   tech: ["React", "Tailwind"],
+  //   link: "https://flower-store.onrender.com",
+  //   github: "https://github.com/Divinejay-001/Flower-website",
+  // },
  
  
 ];
