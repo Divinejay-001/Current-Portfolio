@@ -1,31 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
     extend: {
       colors: {
-      bg: "#0E0E11",
-      surface: "#16161A",
-      primary: "#14B8A6",
-      accent: "#2DD4BF",
-      text: "#FAFAFA",
-      muted: "#A1A1AA",
-      border: "#262626",
+        bg: "rgb(var(--bg) / <alpha-value>)",
+        surface: "rgb(var(--surface) / <alpha-value>)",
+        border: "rgb(var(--border) / <alpha-value>)",
+        text: "rgb(var(--text) / <alpha-value>)",
+        muted: "rgb(var(--muted) / <alpha-value>)",
+        primary: "rgb(var(--primary) / <alpha-value>)",
+        brand: "rgb(var(--brand) / <alpha-value>)",
+        accent: "rgb(var(--accent) / <alpha-value>)",
+      },
+      fontFamily: {
+        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+      },
     },
-     container: {
-       center: true,
-       padding:{
-        DEFAULT:'1rem',
-        sm: '2rem',
-        lg:'4rem',
-        xl:'5rem',
-        '2xl':'6rem',
-       }
-    }
   },
-},
   plugins: [],
-}
+};

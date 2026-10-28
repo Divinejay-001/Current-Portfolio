@@ -33,26 +33,28 @@
   overflow: hidden;
 }
 
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 2px;
-  background: conic-gradient(
-    from var(--start, 0deg),
-    rgba(168, 85, 247, 0.6),  /* purple */
-    rgba(59, 130, 246, 0.6), /* blue */
-    rgba(236, 72, 153, 0.6), /* pink */
-    rgba(168, 85, 247, 0.6)  /* loop */
-  );
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.4s ease;
+
+
+
+
+
+:root {
+  --bg: 15 15 15;
+  --surface: 32 32 32;
+  --border: 55 55 55;
+  --text: 248 248 248;
+  --muted: 161 161 161;
+  --primary: 93 214 44;
+  --brand: 51 116 24;
+  --accent: 93 214 44;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* so sections aren't hidden behind the fixed navbar */
+}
 
-.card:hover::before {
-  opacity: 1;
+body {
+  background-color: rgb(var(--bg));
+  color: rgb(var(--text));
 }
