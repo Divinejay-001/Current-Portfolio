@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
 
@@ -24,11 +25,39 @@ const item = {
 export default function Hero() {
   const reduce = useReducedMotion();
 
+  // Skip the video for people on Data Saver, to protect their mobile data
+  const [saveData, setSaveData] = useState(false);
+  useEffect(() => {
+    setSaveData(Boolean(navigator.connection?.saveData));
+  }, []);
+  const showVideo = !reduce && !saveData;
+
   return (
     <section
       id="home"
       className="relative flex min-h-screen items-center overflow-hidden bg-bg pt-28 pb-16"
     >
+      {/* Background video (put hero-bg.webm and hero-bg.mp4 in /public) */}
+      {showVideo && (
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-70"
+        >
+          <source src="/hero-bg.webm" type="video/webm" />
+          <source src="/hero-bg.mp4" type="video/mp4" />
+        </video>
+      )}
+      {/* Dark overlay keeps the text readable and blends the video into the page */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-bg/80 via-bg/60 to-bg"
+      />
+
       {/* Background: faded grid + glows */}
       <div
         aria-hidden="true"
