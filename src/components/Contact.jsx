@@ -63,7 +63,7 @@ function ContactCard({ icon: Icon, title, value, href, external }) {
       </span>
       <span className="min-w-0 flex-1">
         <span className="block text-sm font-semibold text-text">{title}</span>
-        <span className="block break-words text-sm text-muted">{value}</span>
+        <span className="block text-sm text-muted [overflow-wrap:anywhere]">{value}</span>
       </span>
       {href && (
         <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-border/70 text-text transition group-hover:bg-primary group-hover:text-bg">
@@ -74,7 +74,7 @@ function ContactCard({ icon: Icon, title, value, href, external }) {
   );
 
   const base =
-    "group flex items-center gap-4 rounded-2xl border border-border bg-surface/50 p-4 backdrop-blur transition";
+    "group flex items-center gap-3 rounded-2xl border border-border bg-surface/50 p-3 backdrop-blur transition sm:gap-4 sm:p-4";
 
   return href ? (
     <a
@@ -119,7 +119,7 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-bg pb-24 pt-20 text-text"
+      className="relative overflow-hidden bg-bg pb-20 pt-24 text-text sm:pb-24"
     >
       {/* Top glow */}
       <div
@@ -131,20 +131,20 @@ const ContactSection = () => {
         }}
       />
 
-      {/* Giant faded watermark */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-12 -translate-x-1/2 select-none whitespace-nowrap bg-gradient-to-b from-text/25 to-transparent bg-clip-text text-[22vw] font-black uppercase leading-none tracking-tight text-transparent lg:text-[13rem]"
-      >
-        Contact
-      </div>
-
       {/* Circuit decorations */}
       <CircuitLine className="left-0 top-24" />
       <CircuitLine className="right-0 top-24 -scale-x-100" />
 
-      <div className="relative mx-auto max-w-6xl px-6 pt-40 md:pt-52">
-        <div className="grid gap-8 lg:grid-cols-2">
+      <div className="relative mx-auto max-w-6xl px-5 sm:px-6">
+        {/* Giant faded watermark: in normal flow so it can never overlap on small screens */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none mb-8 select-none whitespace-nowrap bg-gradient-to-b from-text/25 to-transparent bg-clip-text text-center text-[17vw] font-black uppercase leading-[0.9] tracking-tight text-transparent sm:text-[7rem] md:text-[10rem] lg:mb-0 lg:text-[13rem]"
+        >
+          Contact
+        </div>
+
+        <div className="relative z-10 grid gap-10 lg:-mt-16 lg:grid-cols-2 lg:gap-8">
           {/* Left: info */}
           <div>
             <motion.span
@@ -246,7 +246,7 @@ const ContactSection = () => {
                   name="message"
                   placeholder="Tell me about your project: what you need, your goal, and any timeline"
                   required
-                  className={`${fieldClass} min-h-[220px] flex-1 resize-none`}
+                  className={`${fieldClass} min-h-[160px] flex-1 resize-none sm:min-h-[220px]`}
                 />
               </div>
 
