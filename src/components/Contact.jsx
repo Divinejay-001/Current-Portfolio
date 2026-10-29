@@ -109,7 +109,8 @@ const ContactSection = () => {
       setStatus("success");
       form.current.reset();
     } catch (error) {
-      console.error(error?.text ?? error);
+      // Open DevTools > Console to see exactly why EmailJS refused the request
+      console.error("EmailJS error:", error?.status, error?.text ?? error);
       setStatus("error");
     } finally {
       setIsLoading(false);
@@ -280,7 +281,22 @@ const ContactSection = () => {
                   className="flex items-start gap-3 rounded-2xl border border-red-400/25 bg-red-400/10 p-4 text-sm text-red-300"
                 >
                   <AlertCircle size={18} className="mt-0.5 shrink-0" aria-hidden="true" />
-                  Something went wrong. Please try again, or email me directly at {EMAIL}.
+                  <span>
+                    Your message didn't go through. Please{" "}
+                    <a href={`mailto:${EMAIL}`} className="font-semibold underline">
+                      email me
+                    </a>{" "}
+                    or{" "}
+                    <a
+                      href={WHATSAPP}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold underline"
+                    >
+                      message me on WhatsApp
+                    </a>{" "}
+                    and I'll get back to you.
+                  </span>
                 </motion.p>
               )}
             </div>
