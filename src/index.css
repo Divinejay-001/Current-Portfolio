@@ -5,27 +5,40 @@
 
 
 
+/* Scrollbar: Chrome, Edge, Safari */
 ::-webkit-scrollbar {
-    width: 12px; /* Adjust width as needed */
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--bg));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--border));
+  border-radius: 999px;
+  /* Padding trick: the bg-colored border makes the thumb look slimmer and floating */
+  border: 2px solid rgb(var(--bg));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--primary));
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: rgb(var(--brand));
+}
+
+/* Scrollbar: Firefox only.
+   Chrome 121+ also reads scrollbar-color and would then ignore the rules above,
+   so this is wrapped to apply only where ::-webkit-scrollbar is unsupported. */
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--border)) rgb(var(--bg));
   }
-  
-  /* Scrollbar track (background) */
-  ::-webkit-scrollbar-track {
-    background: #f0f0f0; /* Change to your desired track color */
-    border-radius: 10px; /* Optional: makes the track rounded */
-    
-  }
-  
-  /* Scrollbar thumb (scroll handle) */
-  ::-webkit-scrollbar-thumb {
-    background:#14B8A6; /* Change to your desired thumb color */
-    border-radius: 10px; /* Optional: makes the thumb rounded */
-  }
-  
-  /* Scrollbar thumb on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #262626; /* Change color when hovered */
-  }
+}
   
  .card {
   position: relative;

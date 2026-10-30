@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import { Gauge, MessagesSquare, Layers } from "lucide-react";
 
+
 // Put your photo in /public (e.g. /public/divinegift.jpg) and use "/divinegift.jpg"
 // A Pinterest hotlink can break or be blocked at any time.
-const PHOTO = "https://i.pinimg.com/736x/b9/d3/47/b9d3472d6d67f02003a6d317066ab626.jpg";
+const PHOTO = '/Portrait.png';
 
 const SKILLS = [
   "React",
